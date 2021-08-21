@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/7j8gnu40fwdv20pp?svg=true)](https://ci.appveyor.com/project/Strugatskaya/pattern-2testmode)
