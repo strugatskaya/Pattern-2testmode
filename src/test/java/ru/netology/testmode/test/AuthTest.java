@@ -29,9 +29,9 @@ class AuthTest {
     void shouldSuccessfulLoginIfRegisteredActiveUser() {
         var registeredUser = getRegisteredUser("active");
         SelenideElement form = $(".form");
-        form.$("[data-test-id=login] input").setValue(registeredUser.getLogin());
-        form.$("[data-test-id=password] input").setValue(registeredUser.getPassword());
-        form.$("[data-test-id='action-login']").click();
+        $("[name=login]").setValue(registeredUser.getLogin());
+        $("[name=password]").setValue(registeredUser.getPassword());
+        $("[data-test-id=action-login]").click();
         $$(".heading").find(exactText("Личный кабинет")).should(visible);
     }
 
@@ -55,7 +55,7 @@ class AuthTest {
         form.$("[data-test-id=login] input").setValue(blockedUser.getLogin());
         form.$("[data-test-id=password] input").setValue(blockedUser.getPassword());
         form.$("[data-test-id='action-login']").click();
-        $(byText("Неверно указан логин или пароль")).shouldBe(visible, Duration.ofSeconds(5));
+        $(byText("Пользователь заблокирован")).shouldBe(visible, Duration.ofSeconds(5));
     }
 
 
